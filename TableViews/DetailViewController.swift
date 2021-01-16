@@ -8,6 +8,15 @@ class DetailViewController: UIViewController {
   @IBOutlet var authorLabel: UILabel!
   @IBOutlet var imageView: UIImageView!
   
+  @IBAction func updateImage() {
+    let imagePicker = UIImagePickerController()
+    imagePicker.delegate = self
+    imagePicker.sourceType = UIImagePickerController.isSourceTypeAvailable(.camera) ? .camera : .photoLibrary
+    imagePicker.allowsEditing = true
+    present(imagePicker, animated: true)
+  }
+  
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -16,6 +25,7 @@ class DetailViewController: UIViewController {
     authorLabel.text = book.author
     
   }
+
   
   required init?(coder: NSCoder) {
     fatalError("This sould never be called")
@@ -25,9 +35,16 @@ class DetailViewController: UIViewController {
     self.book = book
     super.init(coder: coder)
   }
-  
-  
-  
-  
+    
 }
 
+extension DetailViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+  
+  func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+    guard let selectedImage = info[.editedImage] as? UIImage else { return }
+    imageView.image = selectedImage
+    Library.saveImage(selectedImage, forBook: book)
+    dismiss(animated: true)
+    
+  }
+}
