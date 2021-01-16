@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6RG-rv-4jX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="EXy-XQ-Vbs">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Library View Controller-->
+        <!--My Library-->
         <scene sceneID="h9E-8w-zJh">
             <objects>
                 <tableViewController id="6RG-rv-4jX" customClass="LibraryViewController" customModule="TableViews" customModuleProvider="target" sceneMemberID="viewController">
@@ -38,6 +39,9 @@
                                         </imageView>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="yzs-iv-zSH" kind="show" destinationCreationSelector="showDetailView:" id="1gU-Kk-3vM"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -45,14 +49,88 @@
                             <outlet property="delegate" destination="6RG-rv-4jX" id="6k8-jF-LHv"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="My Library" id="Yvr-m4-qjC"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LyV-CN-cS1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="822" y="94"/>
+            <point key="canvasLocation" x="1642" y="94"/>
+        </scene>
+        <!--DetailViewController-->
+        <scene sceneID="Ida-P4-ite">
+            <objects>
+                <viewController id="yzs-iv-zSH" userLabel="DetailViewController" customClass="DetailViewController" customModule="TableViews" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="z0T-OF-Fwa">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="3gh-il-Ucf">
+                                <rect key="frame" x="103.5" y="322.5" width="207" height="305"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jzZ-VM-xYX">
+                                        <rect key="frame" x="0.0" y="0.0" width="207" height="33.5"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ydw-C6-eF1">
+                                        <rect key="frame" x="0.0" y="52.5" width="207" height="26.5"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                        <color key="textColor" systemColor="secondaryLabelColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="book.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="l9n-VN-gHp">
+                                        <rect key="frame" x="0.0" y="98.5" width="207" height="206"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="l9n-VN-gHp" secondAttribute="height" multiplier="1:1" id="Pk7-5n-AX0"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="bCa-aQ-ZD5"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="3gh-il-Ucf" firstAttribute="centerX" secondItem="bCa-aQ-ZD5" secondAttribute="centerX" id="36q-zK-zTJ"/>
+                            <constraint firstItem="3gh-il-Ucf" firstAttribute="width" secondItem="z0T-OF-Fwa" secondAttribute="width" multiplier="0.5" id="SfG-cq-pZu"/>
+                            <constraint firstItem="3gh-il-Ucf" firstAttribute="centerY" secondItem="bCa-aQ-ZD5" secondAttribute="centerY" id="grC-Xk-WRn"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Eji-eW-Ye3"/>
+                    <connections>
+                        <outlet property="authorLabel" destination="Ydw-C6-eF1" id="hfn-9T-yZm"/>
+                        <outlet property="imageView" destination="l9n-VN-gHp" id="JYq-WB-I5j"/>
+                        <outlet property="titleLabel" destination="jzZ-VM-xYX" id="rhP-Sy-O6L"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="q7a-O0-40A" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2426.0869565217395" y="93.75"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="wM6-NQ-2f5">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="EXy-XQ-Vbs" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="JvV-2N-NPq">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="6RG-rv-4jX" kind="relationship" relationship="rootViewController" id="wsE-5S-z4x"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KOD-L8-9ww" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="821.73913043478262" y="93.75"/>
         </scene>
     </scenes>
     <resources>
+        <image name="book.circle" catalog="system" width="128" height="121"/>
         <image name="book.fill" catalog="system" width="128" height="102"/>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

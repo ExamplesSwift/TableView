@@ -15,6 +15,7 @@
 		1E3AF23625B32CF80005E269 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E3AF23425B32CF80005E269 /* LaunchScreen.storyboard */; };
 		1E3AF23F25B335C20005E269 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3AF23E25B335C20005E269 /* Book.swift */; };
 		1E3AF24425B33FAE0005E269 /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3AF24325B33FAE0005E269 /* Library.swift */; };
+		1E3AF24725B3917D0005E269 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3AF24625B3917D0005E269 /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		1E3AF23725B32CF80005E269 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1E3AF23E25B335C20005E269 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		1E3AF24325B33FAE0005E269 /* Library.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Library.swift; sourceTree = "<group>"; };
+		1E3AF24625B3917D0005E269 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				1E3AF23425B32CF80005E269 /* LaunchScreen.storyboard */,
 				1E3AF23725B32CF80005E269 /* Info.plist */,
 				1E3AF23E25B335C20005E269 /* Book.swift */,
+				1E3AF24625B3917D0005E269 /* DetailViewController.swift */,
 			);
 			path = TableViews;
 			sourceTree = "<group>";
@@ -146,6 +149,7 @@
 				1E3AF23F25B335C20005E269 /* Book.swift in Sources */,
 				1E3AF22E25B32CF70005E269 /* LibraryViewController.swift in Sources */,
 				1E3AF24425B33FAE0005E269 /* Library.swift in Sources */,
+				1E3AF24725B3917D0005E269 /* DetailViewController.swift in Sources */,
 				1E3AF22A25B32CF70005E269 /* AppDelegate.swift in Sources */,
 				1E3AF22C25B32CF70005E269 /* SceneDelegate.swift in Sources */,
 			);
